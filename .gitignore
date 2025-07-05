@@ -1,0 +1,9 @@
+
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+
+crash.log
+# Exclude all .tfvars files
+*.auto.tfvars
