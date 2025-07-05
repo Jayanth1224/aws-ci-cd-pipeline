@@ -4,7 +4,7 @@ metadata:
   name: nginx-service        
 spec:
   selector:
-    app: nginx               # This service will route traffic to any pod with the label "app: nginx"
+    app: nginx     # This service will route traffic to any pod with the label "app: nginx"
   ports:
     - protocol: TCP
       port: 80              

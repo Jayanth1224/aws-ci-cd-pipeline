@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    # We specify that this Ingress should be managed by an AWS Application Load Balancer.
+    kubernetes.io/ingress.class: alb
+    # This sets the scheme to "internet-facing", meaning the ALB will be public.
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    # This tells the ALB to route traffic to pods directly using their IP addresses.
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  rules:
+  - http:
+      paths:
+      - path: / 
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80

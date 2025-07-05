@@ -32,3 +32,8 @@ output "configure_kubectl" {
   description = "Command to configure kubectl for the EKS cluster."
   value       = "aws eks --region ${var.aws_region} update-kubeconfig --name ${var.cluster_name}"
 }
+
+output "alb_controller_role_arn" {
+  description = "The ARN of the IAM role for the ALB Controller."
+  value       = module.alb_controller_iam_role.iam_role_arn
+}
